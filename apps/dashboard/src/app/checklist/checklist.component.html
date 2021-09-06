@@ -1,0 +1,8 @@
+
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+<div *ngIf="currentChecklist$ | async as checklist">
+  <checklist-app-checklist-info [checklist]="currentChecklist$ | async"></checklist-app-checklist-info>
+</div>
+</div>
+</div>

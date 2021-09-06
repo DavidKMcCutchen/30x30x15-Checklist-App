@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h1>Checklists</h1>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let checklist of checklists" data-test="checklist-list-item" (click)="selected.emit(checklist)">
+          <h3 matLine>{{checklist.name}}</h3>
+          <p matLine> Task Start Date: {{checklist.taskStart}}</p>
+          <p matLine> Task Finish Date: {{checklist.taskFinish}}</p>
+          <p matLine> Task Budget: ${{checklist.taskBudget}}</p>
+          <p matLine> Completed?: {{checklist.completed}}</p>
+          
+          <button mat-icon-button (click)="checklistViewed.emit(checklist.id); $event.stopImmediatePropagation()">
+            <mat-icon *ngIf="!readonly">chevron_left</mat-icon>
+          </button>
+
+
+          <button mat-icon-button (click)="deleted.emit(checklist); $event.stopImmediatePropagation()">
+            <mat-icon *ngIf="!readonly">delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>

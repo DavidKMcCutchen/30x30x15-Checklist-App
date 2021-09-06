@@ -1,0 +1,19 @@
+<div class="info-container container">
+  <div class="card-wrapper">
+    <mat-card class="mat-elevation-z1">
+    <mat-card-header>
+      <mat-card-title>{{checklist?.name}}</mat-card-title>
+      <mat-card-subtitle>Checklist Directory</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p matLine> Task Start Date: {{checklist?.taskStart}}</p>
+          <p matLine> Task Finish Date: {{checklist?.taskFinish}}</p>
+          <p matLine> Task Budget: {{checklist?.taskBudget}}</p>
+          <p matLine> Completed?: {{checklist?.completed}}</p>
+  
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="navigateBack()">Return</button>
+    </mat-card-actions>
+  </mat-card></div></div>
+  

@@ -1,0 +1,85 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="currentChecklist.id; else elseBlock">{{
+          originalTitle
+        }}</span>
+        <ng-template #elseBlock>Create a Checklist</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="save(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+      </mat-form-field>
+
+      
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+          <mat-label>Task Start</mat-label>
+          <input
+            matInput
+            placeholder="Task Start"
+            formControlName="taskStart"
+            type="text"
+            name="taskStart"
+          />
+        </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width" floatLabel="always">
+        <mat-label>Task Finish</mat-label>
+        <input
+          matInput
+          placeholder="Task Finish"
+          formControlName="taskFinish"
+          type="text"
+          name="taskFinish"
+        />
+      </mat-form-field>
+
+      <section class="full-width">
+        <mat-label>
+          Task Budget:
+          ${{ this.form.get('taskBudget')?.value }} 
+        </mat-label>
+
+        <mat-slider
+          class="full-width"
+          formControlName="taskBudget"
+          min="0"
+          max="5000"
+          thumbLabel
+          name="taskBudget"
+          tickInterval="100"
+        ></mat-slider>
+      </section>
+
+      <section>
+          <mat-checkbox formControlName="completed" placeholder="Completed"
+            >Completed Task?</mat-checkbox
+          >
+        </section>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button color="primary">
+        {{ originalTitle ? 'Save' : 'Create' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

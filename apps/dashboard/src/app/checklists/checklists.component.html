@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="col-50" layout="row" layout-align="center center">
+      <checklist-app-checklist-list
+        [checklists]="allChecklists$ | async"
+        (selected)="selectChecklist($event)"
+        (deleted)="deleteChecklist($event)"
+        (checklistViewed)="viewChecklist($event)"
+      ></checklist-app-checklist-list>
+    </div>
+    <div class="col-50" layout="row" layout-align="center center">
+      <checklist-app-checklist-details
+        [checklist]="selectedChecklist$ | async"
+        (saved)="saveChecklist($event)"
+        (cancelled)="resetChecklist()"
+        [form]="form"
+      ></checklist-app-checklist-details>
+    </div>
+  </div>

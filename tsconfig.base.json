@@ -13,9 +13,17 @@
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "noImplicitAny": false,
+    "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
-      "@checklist-app/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@checklist-app/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@checklist-app/core-data": ["libs/core-data/src/index.ts"],
+      "@checklist-app/core-state": ["libs/core-state/src/index.ts"],
+      "@checklist-app/environment": ["libs/environment/src/index.ts"],
+      "@checklist-app/material": ["libs/material/src/index.ts"],
+      "@checklist-app/theme": ["libs/theme/src/index.ts"],
+      "@checklist-app/ui-login": ["libs/ui-login/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

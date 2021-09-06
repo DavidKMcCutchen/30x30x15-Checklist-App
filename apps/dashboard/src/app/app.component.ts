@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@checklist-app/api-interfaces';
+
 
 @Component({
   selector: 'checklist-app-root',
@@ -8,6 +7,9 @@ import { Message } from '@checklist-app/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title= "Checklists";
+  links=[
+    {path: '', icon: 'home', title: 'Home'},
+    {path: 'checklists', icon: 'view_list', title: 'Checklists'}
+  ]
 }
